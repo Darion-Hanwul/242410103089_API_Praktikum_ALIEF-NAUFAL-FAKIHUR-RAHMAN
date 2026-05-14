@@ -2,7 +2,7 @@
 class Product {
   final int? id;
   final String name;
-  final int price;  // HARUS int, BUKAN String
+  final int price;  
   final String description;
   final String? createdAt;
   final String? updatedAt;
@@ -36,10 +36,9 @@ class Product {
   }
 }
 
-// Class Model untuk Submit Tugas - SESUAI FORMAT PDF
 class SubmitTask {
   final String name;
-  final int price;      // HARUS price (int), BUKAN NIM!
+  final int price;      
   final String description;
   final String githubUrl;
 
@@ -53,9 +52,9 @@ class SubmitTask {
   Map<String, dynamic> toJson() {
     return {
       'name': name,
-      'price': price,           // Sesuai PDF halaman 5
+      'price': price,           
       'description': description,
-      'github_url': githubUrl,  // Sesuai PDF halaman 5
+      'github_url': githubUrl, 
     };
   }
 }

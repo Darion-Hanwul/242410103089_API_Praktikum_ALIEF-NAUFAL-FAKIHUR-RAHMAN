@@ -7,7 +7,6 @@ class ApiService {
   static const String baseUrl = 'https://task.itprojects.web.id';
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
-  // LOGIN - SESUAI PDF halaman 3
   Future<String?> login(String username, String password) async {
     final url = Uri.parse('$baseUrl/api/auth/login');
     
@@ -27,7 +26,6 @@ class ApiService {
       final data = jsonDecode(response.body);
       final String token = data['data']['token'];
       
-      // SESUAI PDF: Simpan token menggunakan flutter_secure_storage
       await _storage.write(key: 'auth_token', value: token);
       
       print('Login berhasil! Token: $token');
@@ -42,7 +40,6 @@ class ApiService {
     return await _storage.read(key: 'auth_token');
   }
 
-  // SESUAI PDF halaman 4: GET /api/products
   Future<List<Product>> getProducts() async {
     final token = await getToken();
     final url = Uri.parse('$baseUrl/api/products');
@@ -67,7 +64,6 @@ class ApiService {
     }
   }
 
-  // SESUAI PDF halaman 4: POST /api/products
   Future<Product> createProduct(Product product) async {
     final token = await getToken();
     final url = Uri.parse('$baseUrl/api/products');
@@ -90,7 +86,6 @@ class ApiService {
     }
   }
 
-  // SESUAI PDF halaman 5: POST /api/products/submit
   Future<bool> submitTask(SubmitTask task) async {
     final token = await getToken();
     final url = Uri.parse('$baseUrl/api/products/submit');
